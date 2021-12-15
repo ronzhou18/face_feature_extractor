@@ -35,6 +35,7 @@ def load_image(img_path):
     image = cv2.imread(img_path)
     if image is None:
         return None
+    image = cv2.resize(image,(112,112))
     image = image.transpose((2, 0, 1))#
     image = image[np.newaxis,:,  :, :]
     image = image.astype(np.float32, copy=False)
